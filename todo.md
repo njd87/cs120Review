@@ -1,4 +1,5 @@
 # Lectures
+[x] 9 - _Graph Intro_
 
 [] 10 - _Graph Search_
 

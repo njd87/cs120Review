@@ -19,4 +19,63 @@
 \begin{document}
 \maketitle
 
+\section*{Lecture 9}
+\paragraph*{Definitions} |
+\newline
+\newline
+\textbf{Directed Graph}
+\begin{itemize}
+  \item Defined as G = (V, E)
+  \item For each $(u, v) \in E$, $u, v \in V$, $u$ "points to" $v$
+\end{itemize}
+\textbf{Undirected Graph} 
+\begin{itemize}
+  \item Defined as G = (V, E)
+  \item For each $(u, v) \in E$, $u, v \in V$, $u$ and $v$ "point to each outer"
+\end{itemize}
+\textbf{Digraph}
+\begin{itemize}
+  \item Simple, unweighted, directed graph
+\end{itemize}
+\paragraph*{Keywords} |
+\newline
+\newline
+\emph{Planar}: a graph can be drawn in 2D with no edge crossings.
+\newline
+\newline
+\emph{Walk}: a sequence of verticies from $s$ to $t$
+\newline
+\newline
+\emph{Shortest Walk}: the "distance" of $s$ to $t$ (aka, the minimum of the possible lengths)
+\paragraph*{Theorems and Lemmas} |
+\newline
+\newline
+\emph{Shortest Walk Lemma: } If $w$ is a shortest walk from $s$ to $t$, then all of the vertices that occur on w are distinct.
+That is, every shortest walk is a \emph{path}.
+\begin{itemize}
+  \item Suppose we have a shorest walk with repeated vertices. We know there exists a shorter one
+  by simply getting rid of all vertices between the first instance of the repeated vertex and the second
+  for all vertices.
+\end{itemize}
+
+\paragraph*{Algorithms} |
+\newline
+\newline
+\emph{Shortest Walk}
+\begin{itemize}
+  \item Inputs: digraph $G = (V,E)$, verticies $s,t \in V$ 
+  \item Outputs: shortest walk iff it exists
+  \item Possible solving algorithms:
+  \begin{enumerate}
+    \item Exhaustive Search: $(n-1)! \cdot O(n)$
+    \begin{itemize}
+      \item Get all walks of length n-1
+      \item By Shortest Walk Lemma, our shortest walk must be here
+      \item Find shortest walk starting from $s$ and ending at $t$
+    \end{itemize}
+    \item BFS: 
+  \end{enumerate}
+\end{itemize}
+
+
 \end{document}
