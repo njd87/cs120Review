@@ -2,9 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
-\title{STAT110 PS2}
-\author{Nicholas DeSanctis}
-\date{September 2022}
+\title{CS120 Review: Graphs}
+\author{NJD}
+\date{2022}
 
 \usepackage{listings}
 
@@ -56,6 +56,11 @@ That is, every shortest walk is a \emph{path}.
   \item Suppose we have a shorest walk with repeated vertices. We know there exists a shorter one
   by simply getting rid of all vertices between the first instance of the repeated vertex and the second
   for all vertices.
+\end{itemize}
+\emph{BFS 2-Coloring Theorems} BFSColoring on a 2-colorable graph will always return a valid 2-coloring in O(n + m) time
+\begin{itemize}
+  \item Think about it: if the graph is 2-colorable, each new frontier will have alternating colors
+  \item Time O(n + m) is achieved through connected components 
 \end{itemize}
 
 \paragraph*{Algorithms} |
@@ -118,7 +123,7 @@ That is, every shortest walk is a \emph{path}.
 \emph{Connected Components}
 \begin{itemize}
   \item Inputs: Undirected graph $G = (V,E)$
-  \item Outputs: a parition of V such that they are connected componetns
+  \item Outputs: a parition of V such that they are connected components
   \item Possible solving algorithms:
   \begin{enumerate}
     \item BFS: O(n + m)

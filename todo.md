@@ -1,9 +1,9 @@
 # Lectures
 [x] 9 - _Graph Intro_
 
-[] 10 - _Graph Search_
+[x] 10 - _Graph Search_
 
-[] 11 - _Graph Coloring_
+[x] 11 - _Graph Coloring_
 
 [] 12 - _ISETs_
 

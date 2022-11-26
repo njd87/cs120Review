@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{CS120 Review: SRE Connected Components}
+\author{NJD}
+\date{2022}
+
+\usepackage{listings}
+
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
+}
+
+\begin{document}
+\maketitle
+
+\section*{The Algorithm}
+\paragraph*{Explanation} |
+If we have a graph $G=(V,E)$, we want to partition V such that each pair of vertices that are reachable from one to the other
+are in the same parition (this is an iff statement). I.e., if we have a connected graph, we return only 1 V: the original V.
+
+\paragraph*{The Idea}
+If we do BFS on a random vertex $v_{0}$, we can get all connected verticies by implementing improved BFS on just the connected component
+involving $v_{0}$. This is $V_{0}$. If there exists any $v_{i}$ in $V - V_{0}$, call it again on that. This should be, in total, \boxed{$O(n + m)$}
+
+\paragraph*{The implementation}
+We do this algorithm as a reduction to another algorithm called BFSLabel. First, here is how BFS-CC works:
+
+\begin{enumerate}
+  \item Create an array S, where S[$v_{i}$] = $\bot$
+  \item Create a variable called $\ell$, intialize to 0
+  \item For each $v_{i}$:
+  \begin{enumerate}
+    \item if S[$v_{i}$] == $\bot$:
+    \begin{itemize}
+      \item Oracle call BFSLabel to label each vertex reachable by $v_{i}$ to the value $\ell$
+    \end{itemize}
+    \item $\ell += 1$
+  \end{enumerate}
+  \item return $(\ell, S)$
+\end{enumerate}
+
+How does $BFSLabel$ work?
+
+\begin{enumerate}
+  \item Label each vertex by some input number $\ell$ iff it is reachable from starting vertex $s$; we also input a labeling array S
+  \item Set $F = [s]$
+  \item Pretty simple: just do a while loop for if there are vertices reachable from each vertex in $F$ SUCH THAT none of them are labeled $l$
+  \begin{itemize}
+    \item If yes: label $S[f_{i}] = \ell$; update $F$ to be these new verticies
+    \item If no: terminate (we don't have to return since we update $S$)
+  \end{itemize}
+\end{enumerate}
+
+\end{document}
