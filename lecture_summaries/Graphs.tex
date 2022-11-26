@@ -19,7 +19,7 @@
 \begin{document}
 \maketitle
 
-\section*{Lecture 9}
+\section*{Lectures 9 and 10}
 \paragraph*{Definitions} |
 \newline
 \newline
@@ -69,13 +69,69 @@ That is, every shortest walk is a \emph{path}.
   \begin{enumerate}
     \item Exhaustive Search: $(n-1)! \cdot O(n)$
     \begin{itemize}
-      \item Get all walks of length n-1
+      \item Get all walks up to length n-1
       \item By Shortest Walk Lemma, our shortest walk must be here
       \item Find shortest walk starting from $s$ and ending at $t$
     \end{itemize}
-    \item BFS: 
+    \item BFS: $O(n + m)$
+    \begin{itemize}
+      \item Initialize array $V$, where $V[v]$ represents which vertex we got to $v$ from
+      \item From i in 0 to n-1:
+      \begin{itemize}
+        \item If $V[t]$, return the sequence from $V[t]$ down to s
+        \item Add all new vertices from the current frontier's edges to $V$ if they are not there already
+      \end{itemize}
+      \item Return $\bot$
+    \end{itemize}
   \end{enumerate}
 \end{itemize}
 
+\emph{Coloring}
+\begin{itemize}
+  \item Inputs: Connceted graph $G = (V,E)$
+  \item Outputs: a "few" coloring of the graph
+  \item Possible solving algorithms:
+  \begin{enumerate}
+    \item Greedy: O(n + m)
+    \begin{itemize}
+      \item Select ordering of the colors
+      \item For i in 0 to n - 1
+      \begin{itemize}
+        \item Coloring of vertex $v_{i}$ is the minimum color (i.e., assign each color a number) such that
+        none of its edges also share this color.
+      \end{itemize}
+      \item return this coloring
+    \end{itemize}
+    \item ***BFS: I think it's $O(n + m)$, but notes aren't too clear...***
+    \begin{itemize}
+      \item Select ordering of vertices by performing BFS from some vertex $v_{0}$
+      \item For i in 0 to n - 1
+      \begin{itemize}
+        \item Coloring of vertex $v_{i}$ is the minimum color (i.e., assign each color a number) such that
+        none of its edges also share this color.
+      \end{itemize}
+      \item return this coloring
+    \end{itemize}
+  \end{enumerate}
+\end{itemize}
+
+\emph{Connected Components}
+\begin{itemize}
+  \item Inputs: Undirected graph $G = (V,E)$
+  \item Outputs: a parition of V such that they are connected componetns
+  \item Possible solving algorithms:
+  \begin{enumerate}
+    \item BFS: O(n + m)
+    \begin{itemize}
+      \item Select ordering of the colors
+      \item For i in 0 to n - 1
+      \begin{itemize}
+        \item Coloring of vertex $v_{i}$ is the minimum color (i.e., assign each color a number) such that
+        none of its edges also share this color.
+      \end{itemize}
+      \item return this coloring
+    \end{itemize}
+  \end{enumerate}
+\end{itemize}
 
 \end{document}
